@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nota Financeira — O mercado, explicado com calma</title>
+  <meta name="description"
+    content="Atualizações objetivas, radar de oportunidades e análises editoriais sobre Brasil e EUA — sem gritaria." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #F6F8FB;
+      --card: #FFFFFF;
+      --primary: #1E3A8A;
+      --secondary: #3B82F6;
+      --up: #16A34A;
+      --down: #DC2626;
+      --text: #1F2937;
+      --muted: #6B7280;
+      --line: #E5E7EB;
+      --radius: 16px;
+      --radius-sm: 12px;
+      --shadow: 0 10px 30px rgba(15, 23, 42, .06);
+      --shadow-soft: 0 6px 18px rgba(30, 58, 138, .08);
+      --space: 24px;
+      --max: 1240px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html,
+    body {
+      height: 100%
+    }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    button {
+      font-family: inherit
+    }
+
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 32px
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: saturate(180%) blur(10px);
+      background: rgba(246, 248, 251, .75);
+      border-bottom: 1px solid rgba(229, 231, 235, .7);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 220px;
+    }
+
+    .mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(30, 58, 138, .16), rgba(59, 130, 246, .12));
+      border: 1px solid rgba(30, 58, 138, .14);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 8px 20px rgba(30, 58, 138, .08);
+    }
+
+    .mark svg {
+      opacity: .9
+    }
+
+    .brand strong {
+      font-size: 16px;
+      letter-spacing: .02em
+    }
+
+    .brand span {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+      font-size: 14px;
+      font-weight: 600;
+      color: #334155;
+    }
+
+    .nav-links a {
+      padding: 8px 10px;
+      border-radius: 10px;
+      transition: background .18s ease, color .18s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(30, 58, 138, .06);
+      color: var(--primary)
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 220px;
+      justify-content: flex-end;
+    }
+
+    .updated {
+      font-size: 12px;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, .55);
+      border: 1px solid rgba(229, 231, 235, .7);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .55);
+      border: 1px solid rgba(229, 231, 235, .7);
+      box-shadow: 0 4px 14px rgba(15, 23, 42, .04);
+      font-size: 13px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--secondary);
+      box-shadow: 0 0 0 6px rgba(59, 130, 246, .12);
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      padding: 56px 0 28px;
+      overflow: hidden;
+    }
+
+    .hero:before {
+      content: "";
+      position: absolute;
+      inset: -120px -120px auto -120px;
+      height: 420px;
+      background:
+        radial-gradient(circle at 20% 25%, rgba(30, 58, 138, .14), transparent 55%),
+        radial-gradient(circle at 75% 35%, rgba(59, 130, 246, .12), transparent 55%),
+        radial-gradient(circle at 55% 85%, rgba(15, 23, 42, .06), transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      display: grid;
+      gap: var(--space);
+      grid-template-columns: 1.25fr .75fr;
+      align-items: stretch;
+    }
+
+    .hero-copy {
+      padding: 24px 6px;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: #0f172a;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .6);
+      border: 1px solid rgba(229, 231, 235, .7);
+      width: fit-content;
+      box-shadow: 0 10px 26px rgba(15, 23, 42, .04);
+      margin-bottom: 16px;
+    }
+
+    .kicker b {
+      color: var(--primary)
+    }
+
+    h1 {
+      font-size: 52px;
+      line-height: 1.06;
+      letter-spacing: -.03em;
+      margin: 0 0 14px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: #475569;
+      max-width: 58ch;
+    }
+
+    .hero-actions {
+      margin-top: 22px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-weight: 700;
+      font-size: 14px;
+      border: 1px solid transparent;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
+      user-select: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(180deg, #1E3A8A, #152C6E);
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(30, 58, 138, .20);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 38px rgba(30, 58, 138, .22)
+    }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, .7);
+      border-color: rgba(229, 231, 235, .85);
+      color: #0f172a;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, .04);
+    }
+
+    .btn-ghost:hover {
+      transform: translateY(-1px);
+      border-color: rgba(30, 58, 138, .25)
+    }
+
+    .hero-aside {
+      position: relative;
+      background: rgba(255, 255, 255, .72);
+      border: 1px solid rgba(229, 231, 235, .8);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      overflow: hidden;
+    }
+
+    .hero-aside:after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 220px;
+      height: 220px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, rgba(59, 130, 246, .20), transparent 60%);
+      filter: blur(2px);
+      pointer-events: none;
+    }
+
+    .aside-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 10px;
+    }
+
+    .aside-title h2 {
+      font-size: 14px;
+      letter-spacing: .02em;
+      color: #0f172a;
+    }
+
+    .aside-title small {
+      font-size: 12px;
+      color: var(--muted)
+    }
+
+    .pulse {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .pulse i {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--up);
+      box-shadow: 0 0 0 6px rgba(22, 163, 74, .14);
+    }
+
+    .quick {
+      display: grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .quick-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .7);
+      border: 1px solid rgba(229, 231, 235, .7);
+    }
+
+    .quick-left {
+      display: flex;
+      gap: 10px;
+      align-items: center
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(229, 231, 235, .9);
+      background: #fff;
+      color: #0f172a;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+
+    .val {
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .chg {
+      font-size: 12px;
+      font-weight: 700
+    }
+
+    .up {
+      color: var(--up)
+    }
+
+    .down {
+      color: var(--down)
+    }
+
+    .flat {
+      color: #94A3B8
+    }
+
+    /* Ticker bar */
+    .ticker {
+      margin-top: 12px;
+      border-top: 1px solid rgba(229, 231, 235, .7);
+      border-bottom: 1px solid rgba(229, 231, 235, .7);
+      background: rgba(255, 255, 255, .65);
+      backdrop-filter: blur(10px);
+    }
+
+    .ticker-wrap {
+      display: flex;
+      gap: 0;
+      overflow: auto;
+      scrollbar-width: none;
+    }
+
+    .ticker-wrap::-webkit-scrollbar {
+      display: none
+    }
+
+    .tick {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      border-right: 1px solid rgba(229, 231, 235, .7);
+      min-width: 220px;
+    }
+
+    .tick b {
+      font-size: 12px;
+      letter-spacing: .08em;
+      color: #0f172a
+    }
+
+    .tick span {
+      font-size: 14px;
+      font-weight: 800
+    }
+
+    .tick em {
+      font-style: normal;
+      font-size: 12px;
+      font-weight: 700
+    }
+
+    .spark {
+      width: 80px;
+      height: 22px;
+      opacity: .9;
+    }
+
+    /* Sections */
+    .section {
+      padding: 40px 0
+    }
+
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .section-head h2 {
+      font-size: 26px;
+      letter-spacing: -.02em;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 64ch;
+    }
+
+    /* Cards / grids */
+    .grid {
+      display: grid;
+      gap: var(--space);
+    }
+
+    .grid-2 {
+      grid-template-columns: 1.1fr .9fr;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-news {
+      grid-template-columns: 1.2fr .8fr;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, .75);
+      border: 1px solid rgba(229, 231, 235, .85);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      padding: var(--space);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 42px rgba(15, 23, 42, .10);
+      border-color: rgba(30, 58, 138, .18);
+    }
+
+    .muted {
+      color: var(--muted)
+    }
+
+    .hr {
+      height: 1px;
+      background: rgba(229, 231, 235, .9);
+      margin: 16px 0
+    }
+
+    /* Radar */
+    .radar-layout {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: var(--space);
+    }
+
+    .radar-main .headline {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .headline h3 {
+      font-size: 20px;
+      letter-spacing: -.01em
+    }
+
+    .score {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid rgba(229, 231, 235, .9);
+      font-size: 12px;
+    }
+
+    .score strong {
+      font-size: 14px
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 8px 10px;
+      border-radius: 999px;
+      width: fit-content;
+      border: 1px solid rgba(229, 231, 235, .9);
+      background: #fff;
+    }
+
+    .badge i {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      display: inline-block
+    }
+
+    .b-strong i {
+      background: var(--up);
+      box-shadow: 0 0 0 6px rgba(22, 163, 74, .12)
+    }
+
+    .b-neutral i {
+      background: #64748B;
+      box-shadow: 0 0 0 6px rgba(100, 116, 139, .12)
+    }
+
+    .b-caution i {
+      background: var(--down);
+      box-shadow: 0 0 0 6px rgba(220, 38, 38, .12)
+    }
+
+    .radar-main p {
+      color: #475569;
+      font-size: 14px;
+      margin: 10px 0 14px;
+      max-width: 70ch;
+    }
+
+    .bullets {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      margin-top: 12px
+    }
+
+    .bullets li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 14px;
+      color: #334155;
+    }
+
+    .bullets li svg {
+      flex: 0 0 auto;
+      margin-top: 2px;
+      opacity: .85
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    .link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .link svg {
+      opacity: .9
+    }
+
+    .radar-side {
+      display: grid;
+      gap: var(--space);
+    }
+
+    .radar-mini h4 {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .radar-mini p {
+      color: #475569;
+      font-size: 13px
+    }
+
+    .radar-mini .badge {
+      margin-top: 10px
+    }
+
+    /* News */
+    .news-cover {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .cover {
+      position: relative;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .cover-inner {
+      padding: 22px;
+      display: grid;
+      gap: 12px;
+      position: relative;
+      min-height: 240px;
+    }
+
+    .cover-inner:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(30, 58, 138, .18), transparent 55%),
+        radial-gradient(circle at 85% 60%, rgba(59, 130, 246, .12), transparent 55%),
+        linear-gradient(180deg, rgba(255, 255, 255, .70), rgba(255, 255, 255, .58));
+      pointer-events: none;
+    }
+
+    .cover-inner>* {
+      position: relative
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      color: #0f172a;
+      text-transform: uppercase;
+    }
+
+    .cover h3 {
+      font-size: 26px;
+      letter-spacing: -.02em;
+      line-height: 1.15;
+      max-width: 26ch;
+    }
+
+    .cover p {
+      color: #475569;
+      max-width: 64ch;
+      font-size: 14px;
+    }
+
+    .meta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    .meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .65);
+      border: 1px solid rgba(229, 231, 235, .8);
+    }
+
+    .news-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .news-item {
+      padding: 16px 16px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, .75);
+      border: 1px solid rgba(229, 231, 235, .85);
+      box-shadow: 0 10px 26px rgba(15, 23, 42, .05);
+      transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+    }
+
+    .news-item:hover {
+      transform: translateY(-2px);
+      border-color: rgba(30, 58, 138, .18);
+      box-shadow: 0 16px 34px rgba(15, 23, 42, .08)
+    }
+
+    .news-item h4 {
+      font-size: 15px;
+      letter-spacing: -.01em;
+      line-height: 1.2
+    }
+
+    .news-item p {
+      font-size: 13px;
+      color: #475569;
+      margin-top: 6px
+    }
+
+    .news-item small {
+      display: block;
+      margin-top: 8px;
+      color: #94A3B8;
+      font-size: 12px
+    }
+
+    /* Calendar + Editorial */
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space);
+    }
+
+    .cal-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin-top: 10px
+    }
+
+    .cal-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(229, 231, 235, .85);
+      background: rgba(255, 255, 255, .75);
+    }
+
+    .cal-list time {
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .02em;
+      color: #0f172a;
+      white-space: nowrap;
+    }
+
+    .cal-list span {
+      font-size: 13px;
+      color: #334155
+    }
+
+    .cal-list em {
+      font-style: normal;
+      font-size: 12px;
+      color: #64748B;
+      white-space: nowrap
+    }
+
+    .editorial p {
+      color: #475569;
+      font-size: 14px
+    }
+
+    .editorial h3 {
+      font-size: 16px;
+      margin-bottom: 8px
+    }
+
+    .editorial .box {
+      padding: 14px 14px;
+      border-radius: 12px;
+      border: 1px dashed rgba(30, 58, 138, .25);
+      background: rgba(30, 58, 138, .04);
+      margin-top: 12px;
+      color: #334155;
+      font-size: 13px;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 30px;
+      padding: 34px 0;
+      border-top: 1px solid rgba(229, 231, 235, .9);
+      background: rgba(255, 255, 255, .55);
+    }
+
+    .foot {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .foot nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      font-size: 13px;
+      color: #334155;
+    }
+
+    .fineprint {
+      font-size: 12px;
+      color: #64748B;
+      max-width: 90ch;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .hero-grid {
+        grid-template-columns: 1fr
+      }
+
+      .radar-layout {
+        grid-template-columns: 1fr
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr
+      }
+
+      .grid-news {
+        grid-template-columns: 1fr
+      }
+
+      .split {
+        grid-template-columns: 1fr
+      }
+
+      h1 {
+        font-size: 42px
+      }
+
+      .nav-links {
+        display: none
+      }
+
+      .brand {
+        min-width: auto
+      }
+
+      .nav-right {
+        min-width: auto
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        padding: 0 18px
+      }
+
+      .tick {
+        min-width: 200px
+      }
+
+      h1 {
+        font-size: 36px
+      }
+
+      .subtitle {
+        font-size: 16px
+      }
+
+      .hero {
+        padding: 44px 0 18px
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="nav" role="navigation" aria-label="Navegação principal">
+        <a class="brand" href="#">
+          <div class="mark" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M5 16.5V20h14v-3.5" stroke="rgba(30,58,138,.9)" stroke-width="2" stroke-linecap="round" />
+              <path d="M7 14l3-3 2 2 5-6" stroke="rgba(59,130,246,.95)" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M19 7h-4" stroke="rgba(59,130,246,.85)" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div>
+            <strong>Nota Financeira</strong>
+            <span>Inteligência de mercado com calma</span>
+          </div>
+        </a>
+
+        <ul class="nav-links" aria-label="Seções">
+          <li><a href="#mercado">Mercado</a></li>
+          <li><a href="#radar">Radar</a></li>
+          <li><a href="#noticias">Notícias</a></li>
+          <li><a href="#calendario">Calendário</a></li>
+          <li><a href="#metodologia">Metodologia</a></li>
+        </ul>
+
+        <div class="nav-right">
+          <div class="updated" id="updatedLabel">Atualizado há 15 min</div>
+          <div class="pill" title="Dados em modo demonstrativo">
+            <span class="dot" aria-hidden="true"></span>
+            <span>Demo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="kicker">
+              <span>Brasil + EUA</span>
+              <span style="color:rgba(148,163,184,.8)">•</span>
+              <span><b>Editorial</b> + dados</span>
+              <span style="color:rgba(148,163,184,.8)">•</span>
+              <span>Sem recomendação</span>
+            </div>
+
+            <h1>O mercado, explicado com clareza — sem gritaria.</h1>
+            <p class="subtitle">
+              Atualizações objetivas, radar de oportunidades e contexto para você entender o que realmente importa.
+              Informação e opinião editorial, sem “compre/venda”.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#radar" aria-label="Explorar Radar">
+                Explorar Radar
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12h12" stroke="white" stroke-width="2" stroke-linecap="round" />
+                  <path d="M13 6l6 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+              <a class="btn btn-ghost" href="#noticias" aria-label="Ir para notícias principais">
+                Ler a capa de hoje
+              </a>
+            </div>
+          </div>
+
+          <aside class="hero-aside" aria-label="Resumo rápido">
+            <div class="aside-title">
+              <h2>Resumo rápido</h2>
+              <small class="pulse"><i></i> ao vivo (demo)</small>
+            </div>
+
+            <div class="quick" role="list">
+              <div class="quick-row" role="listitem">
+                <div class="quick-left">
+                  <span class="tag">IBOV</span>
+                  <span class="muted">125.670</span>
+                </div>
+                <div class="val up">▲ +1,32%</div>
+              </div>
+
+              <div class="quick-row" role="listitem">
+                <div class="quick-left">
+                  <span class="tag">S&P</span>
+                  <span class="muted">5.410</span>
+                </div>
+                <div class="val down">▼ −0,42%</div>
+              </div>
+
+              <div class="quick-row" role="listitem">
+                <div class="quick-left">
+                  <span class="tag">USD</span>
+                  <span class="muted">R$ 4,98</span>
+                </div>
+                <div class="val down">▼ −0,18%</div>
+              </div>
+
+              <div class="quick-row" role="listitem">
+                <div class="quick-left">
+                  <span class="tag">Selic</span>
+                  <span class="muted">10,75%</span>
+                </div>
+                <div class="val flat">⏸ estável</div>
+              </div>
+            </div>
+
+            <div class="hr"></div>
+            <div style="display:flex; justify-content:space-between; gap:12px; align-items:flex-start">
+              <div>
+                <div
+                  style="font-weight:900; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#0f172a">
+                  Leitura do dia</div>
+                <div style="margin-top:6px; font-size:13px; color:#475569">
+                  Juros globais seguem no centro do palco; commodities ajudam o Brasil, mas volatilidade política
+                  permanece no radar.
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- TICKER BAR -->
+      <div class="ticker" id="mercado">
+        <div class="container">
+          <div class="ticker-wrap" aria-label="Faixa de mercado">
+            <div class="tick">
+              <div>
+                <b>IBOVESPA</b><br>
+                <span>125.670</span>
+              </div>
+              <em class="up">▲ +1,32%</em>
+              <svg class="spark" viewBox="0 0 100 24" fill="none" aria-hidden="true">
+                <polyline points="0,18 18,16 36,10 54,12 72,8 100,6" stroke="var(--up)" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+
+            <div class="tick">
+              <div>
+                <b>S&P 500</b><br>
+                <span>5.410</span>
+              </div>
+              <em class="down">▼ −0,42%</em>
+              <svg class="spark" viewBox="0 0 100 24" fill="none" aria-hidden="true">
+                <polyline points="0,6 18,8 36,10 54,12 72,16 100,18" stroke="var(--down)" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+
+            <div class="tick">
+              <div>
+                <b>NASDAQ</b><br>
+                <span>18.120</span>
+              </div>
+              <em class="up">▲ +0,85%</em>
+              <svg class="spark" viewBox="0 0 100 24" fill="none" aria-hidden="true">
+                <polyline points="0,16 18,14 36,15 54,11 72,10 100,8" stroke="var(--up)" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+
+            <div class="tick">
+              <div>
+                <b>DÓLAR</b><br>
+                <span>R$ 4,98</span>
+              </div>
+              <em class="down">▼ −0,18%</em>
+              <svg class="spark" viewBox="0 0 100 24" fill="none" aria-hidden="true">
+                <polyline points="0,14 18,13 36,12 54,10 72,9 100,8" stroke="var(--down)" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+
+            <div class="tick" style="border-right:none">
+              <div>
+                <b>SELIC</b><br>
+                <span>10,75%</span>
+              </div>
+              <em class="flat">⏸ estável</em>
+              <svg class="spark" viewBox="0 0 100 24" fill="none" aria-hidden="true">
+                <polyline points="0,12 18,12 36,12 54,12 72,12 100,12" stroke="#94A3B8" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RADAR -->
+    <section class="section" id="radar">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Radar: vale a pena olhar</h2>
+            <p>Um recorte editorial com pontuação explicável (0–100). Não é recomendação: é triagem inteligente para
+              você investigar melhor.</p>
+          </div>
+          <a class="link" href="#metodologia" aria-label="Ver metodologia">
+            Ver metodologia
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="radar-layout">
+          <article class="card radar-main" aria-label="Radar principal">
+            <div class="headline">
+              <h3>PETR4 — assimetria de preço + fluxo de caixa</h3>
+              <div class="score" title="Pontuação agregada (fundamentos + preço/técnica + eventos)">
+                Score <strong>78</strong>/100
+              </div>
+            </div>
+
+            <div class="badge b-strong"><i></i> Sinal forte</div>
+            <p>
+              Preço encosta em zona técnica relevante enquanto o caixa segue robusto. Leitura favorece monitoramento de
+              curto prazo,
+              mas com risco político como variável dominante.
+            </p>
+
+            <ul class="bullets">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M20 6L9 17l-5-5" stroke="rgba(30,58,138,.95)" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+                Fundamentos: geração de caixa consistente e dividendos previsíveis (sensíveis a política).
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M20 6L9 17l-5-5" stroke="rgba(30,58,138,.95)" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+                Preço/Técnica: retorno a suporte relevante; volatilidade controlada no curto prazo.
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M20 6L9 17l-5-5" stroke="rgba(30,58,138,.95)" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+                Evento: sensível a petróleo e decisões do controlador; monitorar ruído regulatório.
+              </li>
+            </ul>
+
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#noticias" style="padding:10px 14px;border-radius:12px;font-size:13px">
+                Ver análise editorial
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12h12" stroke="white" stroke-width="2" stroke-linecap="round" />
+                  <path d="M13 6l6 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+              <span class="muted" style="font-size:12px">Atualizado: <b>há 12 min</b> • Brasil</span>
+            </div>
+          </article>
+
+          <div class="radar-side" aria-label="Radar secundário">
+            <article class="card radar-mini">
+              <h4>
+                GOGL34
+                <span class="score">Score <strong>64</strong>/100</span>
+              </h4>
+              <div class="badge b-neutral"><i></i> Neutro</div>
+              <p style="margin-top:10px">
+                Cloud cresce forte, mas o mercado precifica cenário competitivo. Bom para acompanhar em quedas com tese
+                clara.
+              </p>
+              <div class="hr"></div>
+              <p class="muted" style="font-size:12px">Risco principal: regulatório e compressão de múltiplo.</p>
+            </article>
+
+            <article class="card radar-mini">
+              <h4>
+                WEGE3
+                <span class="score">Score <strong>42</strong>/100</span>
+              </h4>
+              <div class="badge b-caution"><i></i> Cautela</div>
+              <p style="margin-top:10px">
+                Precificação ainda não reflete possíveis pressões de margem. Melhor esperar gatilhos (balanço/guia).
+              </p>
+              <div class="hr"></div>
+              <p class="muted" style="font-size:12px">Risco principal: desaceleração e revisão de expectativa.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWS -->
+    <section class="section" id="noticias">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>A capa de hoje</h2>
+            <p>Notícias com “por que importa” em linguagem limpa. Sem feed infinito na home.</p>
+          </div>
+          <a class="link" href="#" aria-label="Ver todas as notícias (placeholder)">
+            Ver todas
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="grid grid-news">
+          <article class="card cover">
+            <div class="cover-inner">
+              <div class="eyebrow">Macro • EUA</div>
+              <h3>Fed indica espaço para cortes — mas o ritmo ainda divide o mercado</h3>
+              <p>
+                A curva de juros reage a cada frase: o ponto é menos “quantos cortes” e mais “quanto tempo juros altos
+                permanecem”.
+                Isso muda o apetite a risco e o fluxo para emergentes.
+              </p>
+              <div class="meta">
+                <span>Fonte: comunicado + coletiva</span>
+                <span>Há 1h</span>
+                <span>Impacto: juros, dólar, tech</span>
+              </div>
+
+              <a class="link" href="#" style="margin-top:8px" aria-label="Ler notícia de capa (placeholder)">
+                Ler em 3 min
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                  <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <div class="news-list" aria-label="Notícias secundárias">
+            <article class="news-item">
+              <h4>BC mantém Selic e sinaliza cautela com inflação de serviços</h4>
+              <p>Tom do comunicado ficou menos duro, mas o “data-dependent” continua. Olho no IPCA e no mercado de
+                trabalho.</p>
+              <small>Brasil • Há 2h</small>
+            </article>
+
+            <article class="news-item">
+              <h4>Commodities aliviam, mas China segue como variável de risco</h4>
+              <p>Metais e petróleo sustentam setores cíclicos; o ponto é entender se é impulso técnico ou ciclo novo.
+              </p>
+              <small>Global • Há 4h</small>
+            </article>
+
+            <article class="news-item">
+              <h4>Balanços: semana concentra varejo e bancos — expectativas altas</h4>
+              <p>Mercado precifica resiliência. Surpresas tendem a vir mais de margem e crédito do que de receita.</p>
+              <small>Brasil • Hoje</small>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALENDAR + EDITORIAL -->
+    <section class="section" id="calendario">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Agenda curta</h2>
+            <p>Próximos eventos que costumam mexer com preço. Simples e direto.</p>
+          </div>
+        </div>
+
+        <div class="split">
+          <div class="card" aria-label="Calendário econômico">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px">
+              <h3 style="font-size:16px">Calendário econômico</h3>
+              <span class="muted" style="font-size:12px">próximas 72h</span>
+            </div>
+
+            <ul class="cal-list">
+              <li>
+                <time>19/02 • 10:00</time>
+                <span>IPCA-15 (Brasil)</span>
+                <em>consenso: 0,39%</em>
+              </li>
+              <li>
+                <time>20/02 • 11:00</time>
+                <span>Ata do FOMC (EUA)</span>
+                <em>volatilidade</em>
+              </li>
+              <li>
+                <time>21/02 • 09:00</time>
+                <span>Vendas existentes (EUA)</span>
+                <em>atividade</em>
+              </li>
+              <li>
+                <time>22/02 • 08:00</time>
+                <span>PIB mensal (Brasil)</span>
+                <em>surpresa?</em>
+              </li>
+              <li>
+                <time>23/02 • 14:30</time>
+                <span>Discurso Powell</span>
+                <em>guidance</em>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card editorial" id="metodologia" aria-label="Metodologia e editorial">
+            <h3>Como ler o Radar (sem recomendação)</h3>
+            <p>
+              O score (0–100) combina três blocos: <b>Fundamentos</b>, <b>Preço/Técnica</b> e <b>Eventos</b>.
+              Ele serve para priorizar estudo — não para “mandar comprar”.
+            </p>
+            <div class="box">
+              <b>Tradução editorial:</b><br>
+              75–100: “Vale a pena olhar” (triagem forte)<br>
+              45–74: Neutro (acompanhar com tese clara)<br>
+              0–44: Cautela (esperar gatilhos / reduzir ruído)
+            </div>
+
+            <div class="hr"></div>
+
+            <h3 style="margin-top:8px">Isenção</h3>
+            <p>
+              Conteúdo informativo e opinativo. Não constitui oferta, recomendação, consultoria ou garantia de
+              resultado.
+              Decisões e riscos são do investidor.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="about">
+      <div class="container">
+        <div class="foot">
+          <div>
+            <div style="font-weight:900; color:#0f172a; letter-spacing:-.01em">Nota Financeira</div>
+            <p class="fineprint" style="margin-top:10px">
+              Nota Financeira é uma plataforma de informação e educação. Não constitui oferta de compra ou venda,
+              nem recomendação de investimentos. Rentabilidade passada não garante resultados futuros.
+              Use fontes oficiais e, se necessário, consulte profissional independente.
+            </p>
+          </div>
+          <nav aria-label="Links do rodapé">
+            <a href="#metodologia">Metodologia</a>
+            <a href="#calendario">Calendário</a>
+            <a href="#noticias">Notícias</a>
+            <a href="#">Privacidade</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Atualiza o selo "Atualizado há X min" (demo)
+    (function () {
+      const label = document.getElementById("updatedLabel");
+      const mins = 15;
+      const now = new Date();
+      const hh = String(now.getHours()).padStart(2, "0");
+      const mm = String(now.getMinutes()).padStart(2, "0");
+      if (label) label.textContent = `Atualizado há ${mins} min • ${hh}:${mm}`;
+    })();
+  </script>
+</body>
+
+</html>
