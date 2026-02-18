@@ -1,0 +1,160 @@
+ ```html
+   <!DOCTYPE html>
+   <html lang="pt-BR">
+   <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <title>Nota Financeira – Inteligência de mercado com calma</title>
+     <meta name="description" content="O mercado hoje, descomplicado em 3 minutos. Dados, contexto e calma. Sem gritaria.">
+     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+     <style>
+       :root{
+         --bg:#F6F8FB;
+         --card:#FFFFFF;
+         --primary:#1E3A8A;
+         --secondary:#3B82F6;
+         --up:#16A34A;
+         --down:#DC2626;
+         --text:#1F2937;
+         --radius:12px;
+         --space:24px;
+         --shadow:0 2px 6px rgba(30,58,138,.06);
+       }
+       *{box-sizing:border-box;margin:0;padding:0;font-family:'Inter',sans-serif;color:var(--text)}
+       body{background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+       a{text-decoration:none}
+       .container{max-width:1240px;margin:0 auto;padding:0 32px}
+       header{position:sticky;top:0;background:var(--card);box-shadow:var(--shadow);z-index:100}
+       nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+       .logo{font-size:22px;font-weight:700;color:var(--primary)}
+       .nav-links{display:flex;gap:32px;list-style:none;font-size:15px;font-weight:600}
+       .hero{padding:80px 0;text-align:center}
+       .hero h1{font-size:48px;line-height:1.15;letter-spacing:-.02em;margin-bottom:16px}
+       .hero p{font-size:20px;color:#4b5563;max-width:640px;margin:0 auto 32px}
+       .btn-primary{display:inline-flex;padding:14px 28px;background:var(--primary);color:#fff;border-radius:8px;font-weight:600;transition:background .2s}
+       .btn-primary:hover{background:#152C6E}
+       .section{padding:56px 0}
+       .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space)}
+       .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space)}
+       .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:var(--space);transition:box-shadow .2s,transform .2s}
+       .card:hover{box-shadow:0 4px 12px rgba(30,58,138,.08);transform:translateY(-2px)}
+       .card-title{font-size:18px;font-weight:600;margin-bottom:8px}
+       .card-meta{font-size:13px;color:#6b7280}
+       .mini-spark{height:40px;width:100%;stroke-width:1.8;fill:none}
+       .up{stroke:var(--up)}.down{stroke:var(--down)}
+       .calendar-list{list-style:none;font-size:14px;line-height:2}
+       .calendar-list li{display:flex;justify-content:space-between;max-width:480px}
+       footer{background:#0f172a;color:#cbd5e1;font-size:13px;padding:40px 0;text-align:center}
+       @media(max-width:768px){.grid-4,.grid-3{grid-template-columns:1fr}}
+     </style>
+   </head>
+   <body>
+     <header>
+       <nav class="container">
+         <div class="logo">Nota Financeira</div>
+         <ul class="nav-links"><li><a href="#radar">Radar</a></li><li><a href="#news">Análises</a></li><li><a href="#calendar">Calendário</a></li><li><a href="#about">Sobre</a></li></ul>
+       </nav>
+     </header>
+
+     <section class="hero">
+       <div class="container">
+         <h1>O mercado hoje, descomplicado em 3 minutos</h1>
+         <p>Dados, contexto e calma para você entender o que realmente importa — sem gritaria.</p>
+         <a class="btn-primary" href="#radar">Explorar Radar</a>
+       </div>
+     </section>
+
+     <section id="resumo" class="section">
+       <div class="container">
+         <div class="grid-4">
+           <div class="card">
+             <div class="card-title">Ibovespa</div>
+             <div class="card-meta">124.847 <span style="color:var(--up)">▲ +1,2 %</span></div>
+             <svg class="mini-spark" viewBox="0 0 100 40"><polyline class="up" points="0,35 20,30 40,20 60,25 80,15 100,10"/></svg>
+           </div>
+           <div class="card">
+             <div class="card-title">S&P 500</div>
+             <div class="card-meta">5.324 <span style="color:var(--down)">▼ –0,4 %</span></div>
+             <svg class="mini-spark" viewBox="0 0 100 40"><polyline class="down" points="0,10 20,15 40,20 60,18 80,25 100,30"/></svg>
+           </div>
+           <div class="card">
+             <div class="card-title">Dólar</div>
+             <div class="card-meta">R$ 5,11 <span style="color:var(--down)">▼ –0,7 %</span></div>
+             <svg class="mini-spark" viewBox="0 0 100 40"><polyline class="down" points="0,30 20,28 40,25 60,20 80,18 100,15"/></svg>
+           </div>
+           <div class="card">
+             <div class="card-title">Selic</div>
+             <div class="card-meta">10,75 % <span style="color:#9ca3af">⏸ estável</span></div>
+             <svg class="mini-spark" viewBox="0 0 100 40"><line x1="0" y1="20" x2="100" y2="20" stroke="#9ca3af" stroke-width="1"/></svg>
+           </div>
+         </div>
+       </div>
+     </section>
+
+     <section id="radar" class="section">
+       <div class="container">
+         <h2 style="font-size:32px;margin-bottom:24px">Radar: vale a pena olhar</h2>
+         <div class="grid-3">
+           <div class="card">
+             <div class="card-title">PETR4</div>
+             <div class="card-meta">Score <b>78</b>/100</div>
+             <p style="margin-top:12px;font-size:15px;color:#4b5560">Preço ao patamar de suporte de 2021; fluxo de caixa robusto. Risco: volatilidade política.</p>
+           </div>
+           <div class="card">
+             <div class="card-title">GOGL34</div>
+             <div class="card-meta">Score <b>64</b>/100</div>
+             <p style="margin-top:12px;font-size:15px;color:#4b5560">Múltiplo 24× vs. média 27×. Cloud crescendo 28 % ao ano. Risco: regulatório.</p>
+           </div>
+           <div class="card">
+             <div class="card-title">WEGE3</div>
+             <div class="card-meta">Score <b>42</b>/100</div>
+             <p style="margin-top:12px;font-size:15px;color:#4b5560">Desconto ainda não reflete desaceleração de margem. Aguardar balanço.</p>
+           </div>
+         </div>
+       </div>
+     </section>
+
+     <section id="news" class="section">
+       <div class="container">
+         <h2 style="font-size:32px;margin-bottom:24px">Notícias principais</h2>
+         <div class="grid-3">
+           <article class="card">
+             <h3 style="font-size:20px;margin-bottom:8px">Fed sinaliza três cortes em 2025</h3>
+             <p style="font-size:15px;color:#4b5560">Powell abre espaço para ajustes, mas mercado reduz aposta para duas alturas.</p>
+             <time style="font-size:13px;color:#9ca3af">18 de fevereiro de 2025</time>
+           </article>
+           <article class="card">
+             <h3 style="font-size:20px;margin-bottom:8px">BC mantém Selic com tom dovish</h3>
+             <p style="font-size:15px;color:#4b5560">Comunicado adota linguagem mais suave pela primeira vez desde 2021.</p>
+             <time style="font-size:13px;color:#9ca3af">17 de fevereiro de 2025</time>
+           </article>
+           <article class="card">
+             <h3 style="font-size:20px;margin-bottom:8px">Cade aprova fusão Suzano-Paper</h3>
+             <p style="font-size:15px;color:#4b5560">Ações sobem 4 % após aval sem restrições relevantes.</p>
+             <time style="font-size:13px;color:#9ca3af">16 de fevereiro de 2025</time>
+           </article>
+         </div>
+       </div>
+     </section>
+
+     <section id="calendar" class="section">
+       <div class="container">
+         <h2 style="font-size:32px;margin-bottom:24px">Calendário econômico</h2>
+         <ul class="calendar-list">
+           <li><time>19/02 10h00</time> IPCA-15 Brasil <span>0,39 %</span></li>
+           <li><time>20/02 11h00</time> ATA FOMC EUA</li>
+           <li><time>21/02 09h00</time> Vendas existentes EUA</li>
+           <li><time>22/02 08h00</time> PIB mensal Brasil</li>
+           <li><time>23/02 14h30</time> Discurso Powell</li>
+         </ul>
+       </div>
+     </section>
+
+     <footer>
+       <div class="container">
+         Nota Financeira é plataforma de informação e educação. Não constitui oferta de compra ou venda. Consulte seu planejador independente. Passado não garante futuro.
+       </div>
+     </footer>
+   </body>
+   </html>
+   ```
