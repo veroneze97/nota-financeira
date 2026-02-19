@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nota Financeira — O mercado, explicado com calma</title>
+  <title>Nota Financeira — Dashboard Moderno</title>
   <meta name="description"
     content="Atualizações objetivas, radar de oportunidades e análises editoriais sobre Brasil e EUA — sem gritaria." />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -15,445 +15,202 @@
     rel="stylesheet">
 
   <link rel="stylesheet" href="./src/css/style.css">
-
-
 </head>
 
 <body>
-  <header>
-    <div class="container">
-      <nav class="nav" aria-label="Navegação principal">
-
-        <a class="brand" href="#">
-          <div class="mark" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-            </svg>
-          </div>
-          <div style="line-height: 1.1;">
-            <strong style="font-weight: 800; font-size: 18px; letter-spacing: -0.02em;">Nota Financeira</strong>
-          </div>
+  <div class="app-container">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+          <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+        </svg>
+        <span>Nota Financeira</span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#mercado" class="sidebar-link active">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
+          Dashboard
         </a>
-
-
-        <ul class="nav-links" aria-label="Seções">
-          <li><a href="#mercado">Mercado</a></li>
-          <li><a href="#radar">Radar</a></li>
-          <li><a href="#noticias">Notícias</a></li>
-          <li><a href="#calendario">Calendário</a></li>
-          <li><a href="#metodologia">Metodologia</a></li>
-        </ul>
-
-        <div class="nav-right">
-          <div class="updated" id="updatedLabel">Atualizado há 15 min</div>
-          <div class="pill" title="Dados em modo demonstrativo">
-            <span class="dot" aria-hidden="true"></span>
-            <span>Demo</span>
-          </div>
-        </div>
+        <a href="#radar" class="sidebar-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 2v20M2 12h20" />
+          </svg>
+          Radar
+        </a>
+        <a href="#noticias" class="sidebar-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2" />
+            <path d="M18 14h-8" />
+            <path d="M15 18h-5" />
+            <path d="M10 6h8v4h-8V6Z" />
+          </svg>
+          Insights
+        </a>
+        <a href="#calendario" class="sidebar-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+            <line x1="16" x2="16" y1="2" y2="6" />
+            <line x1="8" x2="8" y1="2" y2="6" />
+            <line x1="3" x2="21" y1="10" y2="10" />
+          </svg>
+          Agenda
+        </a>
       </nav>
-    </div>
-  </header>
+    </aside>
 
-  <main>
-    <!-- HERO BENTO -->
-    <section class="hero">
-      <div class="container">
-        <div class="hero-grid">
-          <!-- Main Content Card -->
-          <div class="card hero-main-card" style="grid-column: span 1; padding: 48px;">
-            <div class="kicker">
-              <span>Brasil + EUA</span>
-              <span style="color:var(--line)">•</span>
-              <span><b>Editorial</b> + dados</span>
-            </div>
-            <h1>O mercado, explicado com clareza.</h1>
-            <p class="subtitle">
-              Atualizações objetivas, radar de oportunidades e contexto para você entender o que realmente importa — sem
-              gritaria.
-            </p>
-            <div class="hero-actions" style="margin-top: 40px;">
-              <a class="btn btn-primary" href="#radar">
-                Explorar Radar
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14" />
-                  <path d="m12 5 7 7-7 7" />
-                </svg>
-              </a>
-              <a class="btn btn-ghost" href="#noticias">Ler capa de hoje</a>
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      <div class="dashboard-layout">
+
+        <!-- HERO CARD (Horizontal) -->
+        <section class="card hero-dashboard" id="mercado">
+          <div class="hero-content">
+            <span class="eyebrow" style="color: rgba(255,255,255,0.6); margin-bottom: 8px; display: block;">Mercado
+              hoje</span>
+            <h1>O mercado, explicado com a calma que você precisa.</h1>
+            <p>Análises objetivas, radar de oportunidades e contexto para você entender o que realmente importa — sem
+              ruído.</p>
+            <div class="hero-actions">
+              <a href="#radar" class="btn btn-primary">Ver Radar</a>
+              <a href="#noticias" class="btn btn-glass" style="margin-left: 12px;">Últimas Notícias</a>
             </div>
           </div>
+          <div class="hero-bg-overlay"></div>
+        </section>
 
-          <!-- Market Dashboard Bento -->
-          <div class="hero-aside-bento">
-            <div class="card bento-item bento-stat">
-              <span class="tag">IBOV</span>
-              <div class="val up">▲ +1,32%</div>
-              <small class="muted">125.670 pts</small>
-            </div>
-            <div class="card bento-item bento-stat">
-              <span class="tag">S&P 500</span>
-              <div class="val down">▼ −0,42%</div>
-              <small class="muted">5.410 pts</small>
-            </div>
-            <div class="card bento-item bento-stat">
-              <span class="tag">USD/BRL</span>
-              <div class="val down">▼ −0,18%</div>
-              <small class="muted">R$ 4,98</small>
-            </div>
-            <div class="card bento-item bento-reading" style="grid-column: span 2;">
-              <div class="eyebrow" style="margin-bottom: 8px; font-size: 11px;">Leitura do dia</div>
-              <p style="font-size: 14px; font-weight: 500; line-height: 1.4;">Juros globais seguem no centro do palco;
-                commodities ajudam o Brasil.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        <!-- MAIN ROW (Grid Horizontal) -->
+        <div class="main-row">
 
+          <!-- LEFT COLUMN: FEED/RADAR -->
+          <div class="main-stage">
+            <section id="radar">
+              <div class="section-head">
+                <h2>Radar de Oportunidades</h2>
+              </div>
+              <div class="card radar-feed">
+                <div class="radar-item">
+                  <div class="radar-info">
+                    <div class="brand-pic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                      </svg></div>
+                    <div>
+                      <strong>PETR4 — Petrobras</strong>
+                      <small>Sinal de Compra • Score 78</small>
+                    </div>
+                  </div>
+                  <div class="radar-stat up">▲ +1.32%</div>
+                </div>
+                <div class="radar-item">
+                  <div class="radar-info">
+                    <div class="brand-pic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="m16 12-4-4-4 4M12 8v8" />
+                      </svg></div>
+                    <div>
+                      <strong>VALE3 — Vale S.A.</strong>
+                      <small>Neutro • Score 54</small>
+                    </div>
+                  </div>
+                  <div class="radar-stat down">▼ -0.42%</div>
+                </div>
+              </div>
+            </section>
 
-    <!-- TICKER BAR -->
-    <div class="ticker" id="mercado">
-      <div class="container">
-        <div class="ticker-wrap" aria-label="Faixa de mercado">
-          <div class="tick">
-            <div>
-              <b>IBOVESPA</b><br>
-              <span>125.670</span>
-            </div>
-            <em class="up">▲ +1,32%</em>
-            <svg class="spark" viewBox="0 0 100 24" fill="none" aria-hidden="true">
-              <polyline points="0,18 18,16 36,10 54,12 72,8 100,6" stroke="var(--up)" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </div>
-
-          <div class="tick">
-            <div>
-              <b>S&P 500</b><br>
-              <span>5.410</span>
-            </div>
-            <em class="down">▼ −0,42%</em>
-            <svg class="spark" viewBox="0 0 100 24" fill="none" aria-hidden="true">
-              <polyline points="0,6 18,8 36,10 54,12 72,16 100,18" stroke="var(--down)" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </div>
-
-          <div class="tick">
-            <div>
-              <b>NASDAQ</b><br>
-              <span>18.120</span>
-            </div>
-            <em class="up">▲ +0,85%</em>
-            <svg class="spark" viewBox="0 0 100 24" fill="none" aria-hidden="true">
-              <polyline points="0,16 18,14 36,15 54,11 72,10 100,8" stroke="var(--up)" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </div>
-
-          <div class="tick">
-            <div>
-              <b>DÓLAR</b><br>
-              <span>R$ 4,98</span>
-            </div>
-            <em class="down">▼ −0,18%</em>
-            <svg class="spark" viewBox="0 0 100 24" fill="none" aria-hidden="true">
-              <polyline points="0,14 18,13 36,12 54,10 72,9 100,8" stroke="var(--down)" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </div>
-
-          <div class="tick" style="border-right:none">
-            <div>
-              <b>SELIC</b><br>
-              <span>10,75%</span>
-            </div>
-            <em class="flat">⏸ estável</em>
-            <svg class="spark" viewBox="0 0 100 24" fill="none" aria-hidden="true">
-              <polyline points="0,12 18,12 36,12 54,12 72,12 100,12" stroke="#94A3B8" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </div>
-        </div>
-      </div>
-    </div>
-    </section>
-
-    <!-- RADAR -->
-    <section class="section" id="radar">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Radar: vale a pena olhar</h2>
-            <p>Um recorte editorial com pontuação explicável (0–100). Não é recomendação: é triagem inteligente para
-              você investigar melhor.</p>
-          </div>
-          <a class="link" href="#metodologia" aria-label="Ver metodologia">
-            Ver metodologia
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-              <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-          </a>
-        </div>
-
-        <div class="radar-layout">
-          <article class="card radar-main" aria-label="Radar principal">
-            <div class="headline">
-              <h3>PETR4 — assimetria de preço + fluxo de caixa</h3>
-              <div class="score" title="Pontuação agregada (fundamentos + preço/técnica + eventos)">
-                Score <strong>78</strong>/100
+            <!-- TICKER BAR AS CARD -->
+            <div class="card ticker-card" style="padding: 24px;">
+              <div class="ticker-wrap-modern" style="display: flex; justify-content: space-between;">
+                <div class="tick-modern"><b>IBOV</b> <span class="up" style="margin-left:8px">+1,32%</span></div>
+                <div class="tick-modern"><b>S&P 500</b> <span class="down" style="margin-left:8px">-0,42%</span></div>
+                <div class="tick-modern"><b>DÓLAR</b> <span class="down" style="margin-left:8px">-0,18%</span></div>
+                <div class="tick-modern"><b>SELIC</b> <span class="flat" style="margin-left:8px">10,75%</span></div>
               </div>
             </div>
-
-            <div class="badge b-strong"><i></i> Sinal forte</div>
-            <p>
-              Preço encosta em zona técnica relevante enquanto o caixa segue robusto. Leitura favorece monitoramento de
-              curto prazo,
-              mas com risco político como variável dominante.
-            </p>
-
-            <ul class="bullets">
-              <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M20 6L9 17l-5-5" stroke="rgba(30,58,138,.95)" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg>
-                Fundamentos: geração de caixa consistente e dividendos previsíveis (sensíveis a política).
-              </li>
-              <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M20 6L9 17l-5-5" stroke="rgba(30,58,138,.95)" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg>
-                Preço/Técnica: retorno a suporte relevante; volatilidade controlada no curto prazo.
-              </li>
-              <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M20 6L9 17l-5-5" stroke="rgba(30,58,138,.95)" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg>
-                Evento: sensível a petróleo e decisões do controlador; monitorar ruído regulatório.
-              </li>
-            </ul>
-
-            <div class="cta-row">
-              <a class="btn btn-primary" href="#noticias" style="padding:10px 14px;border-radius:12px;font-size:13px">
-                Ver análise editorial
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M5 12h12" stroke="white" stroke-width="2" stroke-linecap="round" />
-                  <path d="M13 6l6 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg>
-              </a>
-              <span class="muted" style="font-size:12px">Atualizado: <b>há 12 min</b> • Brasil</span>
-            </div>
-          </article>
-
-          <div class="radar-side" aria-label="Radar secundário">
-            <article class="card radar-mini">
-              <h4>
-                GOGL34
-                <span class="score">Score <strong>64</strong>/100</span>
-              </h4>
-              <div class="badge b-neutral"><i></i> Neutro</div>
-              <p style="margin-top:10px">
-                Cloud cresce forte, mas o mercado precifica cenário competitivo. Bom para acompanhar em quedas com tese
-                clara.
-              </p>
-              <div class="hr"></div>
-              <p class="muted" style="font-size:12px">Risco principal: regulatório e compressão de múltiplo.</p>
-            </article>
-
-            <article class="card radar-mini">
-              <h4>
-                WEGE3
-                <span class="score">Score <strong>42</strong>/100</span>
-              </h4>
-              <div class="badge b-caution"><i></i> Cautela</div>
-              <p style="margin-top:10px">
-                Precificação ainda não reflete possíveis pressões de margem. Melhor esperar gatilhos (balanço/guia).
-              </p>
-              <div class="hr"></div>
-              <p class="muted" style="font-size:12px">Risco principal: desaceleração e revisão de expectativa.</p>
-            </article>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- NEWS -->
-    <section class="section" id="noticias">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>A capa de hoje</h2>
-            <p>Notícias com “por que importa” em linguagem limpa. Sem feed infinito na home.</p>
-          </div>
-          <a class="link" href="#" aria-label="Ver todas as notícias (placeholder)">
-            Ver todas
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-              <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-          </a>
-        </div>
-
-        <div class="grid grid-news">
-          <article class="card cover">
-            <div class="cover-inner">
-              <div class="eyebrow">Macro • EUA</div>
-              <h3>Fed indica espaço para cortes — mas o ritmo ainda divide o mercado</h3>
-              <p>
-                A curva de juros reage a cada frase: o ponto é menos “quantos cortes” e mais “quanto tempo juros altos
-                permanecem”.
-                Isso muda o apetite a risco e o fluxo para emergentes.
-              </p>
-              <div class="meta">
-                <span>Fonte: comunicado + coletiva</span>
-                <span>Há 1h</span>
-                <span>Impacto: juros, dólar, tech</span>
+          <!-- RIGHT COLUMN: ASIDE -->
+          <aside class="aside-panel">
+            <section class="card category-card">
+              <div class="section-head">
+                <h2>Categorias</h2>
               </div>
+              <div class="category-grid">
+                <div class="cat-item">
+                  <div class="cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2">
+                      <path
+                        d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                    </svg></div>
+                  <span>Mercado</span>
+                </div>
+                <div class="cat-item">
+                  <div class="cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg></div>
+                  <span>Macro</span>
+                </div>
+                <div class="cat-item">
+                  <div class="cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M12 8v4l3 3" />
+                    </svg></div>
+                  <span>Radar</span>
+                </div>
+                <div class="cat-item">
+                  <div class="cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2">
+                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                      <circle cx="9" cy="7" r="4" />
+                    </svg></div>
+                  <span>Analistas</span>
+                </div>
+              </div>
+            </section>
 
-              <a class="link" href="#" style="margin-top:8px" aria-label="Ler notícia de capa (placeholder)">
-                Ler em 3 min
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                  <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg>
-              </a>
-            </div>
-          </article>
+            <section class="card people-card">
+              <div class="section-head">
+                <h2>Especialistas</h2>
+              </div>
+              <div class="people-list">
+                <div class="person-item">
+                  <div class="avatar"><img src="https://i.pravatar.cc/150?u=1" alt="Avatar"></div>
+                  <div class="person-info">
+                    <strong>Ricardo Silva</strong>
+                    <span style="font-size: 11px; display: block; margin-top: 2px;">Analista Macro</span>
+                  </div>
+                </div>
+                <div class="person-item">
+                  <div class="avatar"><img src="https://i.pravatar.cc/150?u=2" alt="Avatar"></div>
+                  <div class="person-info">
+                    <strong>Clara Mendes</strong>
+                    <span style="font-size: 11px; display: block; margin-top: 2px;">Estrategista Equity</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </aside>
 
-          <div class="news-list" aria-label="Notícias secundárias">
-            <article class="news-item">
-              <h4>BC mantém Selic e sinaliza cautela com inflação de serviços</h4>
-              <p>Tom do comunicado ficou menos duro, mas o “data-dependent” continua. Olho no IPCA e no mercado de
-                trabalho.</p>
-              <small>Brasil • Há 2h</small>
-            </article>
+        </div> <!-- /main-row -->
 
-            <article class="news-item">
-              <h4>Commodities aliviam, mas China segue como variável de risco</h4>
-              <p>Metais e petróleo sustentam setores cíclicos; o ponto é entender se é impulso técnico ou ciclo novo.
-              </p>
-              <small>Global • Há 4h</small>
-            </article>
-
-            <article class="news-item">
-              <h4>Balanços: semana concentra varejo e bancos — expectativas altas</h4>
-              <p>Mercado precifica resiliência. Surpresas tendem a vir mais de margem e crédito do que de receita.</p>
-              <small>Brasil • Hoje</small>
-            </article>
-          </div>
-        </div>
       </div>
-    </section>
+    </main>
+  </div>
 
-    <!-- CALENDAR + EDITORIAL -->
-    <section class="section" id="calendario">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Agenda curta</h2>
-            <p>Próximos eventos que costumam mexer com preço. Simples e direto.</p>
-          </div>
-        </div>
-
-        <div class="split">
-          <div class="card" aria-label="Calendário econômico">
-            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px">
-              <h3 style="font-size:16px">Calendário econômico</h3>
-              <span class="muted" style="font-size:12px">próximas 72h</span>
-            </div>
-
-            <ul class="cal-list">
-              <li>
-                <time>19/02 • 10:00</time>
-                <span>IPCA-15 (Brasil)</span>
-                <em>consenso: 0,39%</em>
-              </li>
-              <li>
-                <time>20/02 • 11:00</time>
-                <span>Ata do FOMC (EUA)</span>
-                <em>volatilidade</em>
-              </li>
-              <li>
-                <time>21/02 • 09:00</time>
-                <span>Vendas existentes (EUA)</span>
-                <em>atividade</em>
-              </li>
-              <li>
-                <time>22/02 • 08:00</time>
-                <span>PIB mensal (Brasil)</span>
-                <em>surpresa?</em>
-              </li>
-              <li>
-                <time>23/02 • 14:30</time>
-                <span>Discurso Powell</span>
-                <em>guidance</em>
-              </li>
-            </ul>
-          </div>
-
-          <div class="card editorial" id="metodologia" aria-label="Metodologia e editorial">
-            <h3>Como ler o Radar (sem recomendação)</h3>
-            <p>
-              O score (0–100) combina três blocos: <b>Fundamentos</b>, <b>Preço/Técnica</b> e <b>Eventos</b>.
-              Ele serve para priorizar estudo — não para “mandar comprar”.
-            </p>
-            <div class="box">
-              <b>Tradução editorial:</b><br>
-              75–100: “Vale a pena olhar” (triagem forte)<br>
-              45–74: Neutro (acompanhar com tese clara)<br>
-              0–44: Cautela (esperar gatilhos / reduzir ruído)
-            </div>
-
-            <div class="hr"></div>
-
-            <h3 style="margin-top:8px">Isenção</h3>
-            <p>
-              Conteúdo informativo e opinativo. Não constitui oferta, recomendação, consultoria ou garantia de
-              resultado.
-              Decisões e riscos são do investidor.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer id="about">
-      <div class="container">
-        <div class="foot">
-          <div>
-            <div style="font-weight:900; color:#0f172a; letter-spacing:-.01em">Nota Financeira</div>
-            <p class="fineprint" style="margin-top:10px">
-              Nota Financeira é uma plataforma de informação e educação. Não constitui oferta de compra ou venda,
-              nem recomendação de investimentos. Rentabilidade passada não garante resultados futuros.
-              Use fontes oficiais e, se necessário, consulte profissional independente.
-            </p>
-          </div>
-          <nav aria-label="Links do rodapé">
-            <a href="#metodologia">Metodologia</a>
-            <a href="#calendario">Calendário</a>
-            <a href="#noticias">Notícias</a>
-            <a href="#">Privacidade</a>
-          </nav>
-        </div>
-      </div>
-    </footer>
-  </main>
 
   <script type="module" src="./src/js/main.js"></script>
-
-
 </body>
 
 </html>

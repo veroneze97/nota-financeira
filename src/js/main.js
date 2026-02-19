@@ -1,5 +1,5 @@
 import { updateTimestamp } from './utils.js';
-import { animateSparklines } from './animations.js';
+import { animateSparklines, animateEntrance } from './animations.js';
 import { simulateMarketMove } from './market.js';
 import { setupUIInteractions } from './ui.js';
 
@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Inicialização
     updateTimestamp();
     animateSparklines();
+    animateEntrance();
     setupUIInteractions();
 
     // Loops de atualização
